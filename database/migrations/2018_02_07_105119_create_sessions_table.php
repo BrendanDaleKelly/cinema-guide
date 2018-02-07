@@ -6,11 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateSessionsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    // Run the migrations.
     public function up()
     {
         Schema::create('sessions', function (Blueprint $table) {
@@ -22,11 +18,7 @@ class CreateSessionsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    // Reverse the migrations.
     public function down()
     {
         Schema::dropIfExists('sessions');

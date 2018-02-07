@@ -4,13 +4,11 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    // Run the database seeds.
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(CinemasTableSeeder::class);
+        $this->call(MoviesTableSeeder::class);
+        $this->call(SessionsTableSeeder::class);
     }
 }
