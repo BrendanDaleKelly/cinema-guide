@@ -17,7 +17,7 @@ Route::get('sessions', 'SessionController@index'); // Lists all sessions
 Route::get('session/{id}', 'SessionController@show'); // Lists a single session
 
 Route::post('cinema', 'CinemaController@store'); // Creates a new cinema
-Route::patch('cinema{id}', 'CinemaController@update'); // Updates a cinema
+Route::patch('cinema/{id}', 'CinemaController@update'); // Updates a cinema
 Route::delete('cinema/{id}', 'CinemaController@destroy'); // Deletes a cinema
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
