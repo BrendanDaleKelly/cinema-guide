@@ -16,7 +16,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('cinema/{name}/movies/{date?}', 'CinemaController@showMovies'); // lists all movies & sessions available at a cinema on a given date
 
     Route::get('movies', 'MovieController@index'); // Lists all movies
-    Route::get('movie/{name}', 'MovieController@show'); // Lists a single movie
+    Route::get('movie/{title}', 'MovieController@show'); // Lists a single movie
 
     Route::get('sessions', 'SessionController@index'); // Lists all sessions
     Route::get('session/{id}', 'SessionController@show'); // Lists a single session

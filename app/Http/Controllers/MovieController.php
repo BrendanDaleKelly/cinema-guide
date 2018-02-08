@@ -15,10 +15,10 @@ class MovieController extends Controller
         return MovieResource::collection($movies);
     }
 
-    // Get a single movie by name and return it as a resource.
-    public function show($name)
+    // Get a single movie by title and return it as a resource.
+    public function show($title)
     {
-        $movie = Movie::where('name', $name)->firstOrFail();
+        $movie = Movie::where('title', $title)->firstOrFail();
         return new MovieResource($movie);
     }
 }

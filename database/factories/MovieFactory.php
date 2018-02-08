@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Movie::class, function (Faker $faker) {
     return [
-        'title' => $faker->realText($maxNbChars = 20, $indexSize = 2),
+        'title' => $faker->catchPhrase,
         'description' => $faker->realText($maxNbChars = 100, $indexSize = 2),
         'poster' => $faker->url,
         'trailer' => $faker->url,
