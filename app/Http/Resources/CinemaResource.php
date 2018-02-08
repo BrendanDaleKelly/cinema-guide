@@ -17,6 +17,7 @@ class CinemaResource extends Resource
             'phone' => $this->phone,
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
+            'google_maps_link' => "http://www.google.com/maps/place/$this->latitude,$this->longitude",
         ];
     }
 }

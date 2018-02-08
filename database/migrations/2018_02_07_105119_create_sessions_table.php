@@ -13,7 +13,8 @@ class CreateSessionsTable extends Migration
             $table->increments('id');
             $table->integer('movie_id');
             $table->integer('cinema_id');
-            $table->dateTimeTz('time');
+            $table->date('date')->nullable();
+            $table->time('time')->nullable();
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@ class SessionController extends Controller
     public function index()
     {
         $sessions = Session::paginate(15);
-        return SessionsResource::collection($sessions);
+        return SessionResource::collection($sessions);
     }
 
     // Get a single session by id and return it as a resource.

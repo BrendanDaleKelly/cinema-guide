@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
 
-class MoviesResource extends Resource
+class MovieSessionsResource extends Resource
 {
     // Transform the resource into an array.
     public function toArray($request)
@@ -15,6 +15,7 @@ class MoviesResource extends Resource
             'description' => $this->description,
             'poster' => $this->poster,
             'trailer' => $this->trailer,
+            'sessions' => SessionResource::collection($this->sessions),
         ];
     }
 }

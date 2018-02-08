@@ -12,7 +12,7 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::paginate(15);
-        return MoviesResource::collection($movies);
+        return MovieResource::collection($movies);
     }
 
     // Get a single movie by name and return it as a resource.

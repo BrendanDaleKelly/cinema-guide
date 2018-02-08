@@ -13,9 +13,10 @@ class SessionResource extends Resource
     {
         return [
             'id' => $this->id,
+            'date' => $this->date,
             'time' => $this->time,
-            'cinema' => Cinema::findOrFail($this->cinema_id),
-            'movie' => Movie::findOrFail($this->movie_id),
+            'cinema_name' => Cinema::findOrFail($this->cinema_id)->name,
+            'movie_title' => Movie::findOrFail($this->movie_id)->title,
         ];
     }
 }
