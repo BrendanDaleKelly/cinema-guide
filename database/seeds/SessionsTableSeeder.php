@@ -1,23 +1,14 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Sessions;
+use App\Session;
 
 class SessionsTableSeeder extends Seeder
 {
-    // Run the database seeds.
+    // Delete everything from the sessions table then insert faker data with the session factory.
     public function run()
     {
-        Sessions::truncate();
-
-        $faker = \Faker\Factory::create();
-
-        for ($i = 0; $i < 100; $i++) {
-            Sessions::create([
-                'movie_id' => $faker->numberBetween($min = 1, $max = 15),
-                'cinema_id' => $faker->numberBetween($min = 1, $max = 20),
-                'time' => $faker->dateTime($min = 'now', $timezone = NULL),
-            ]);
-        }
+        Session::truncate();
+        factory(App\Session::class, 1000)->create();
     }
 }

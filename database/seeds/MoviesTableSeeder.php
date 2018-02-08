@@ -1,24 +1,14 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Movies;
+use App\Movie;
 
 class MoviesTableSeeder extends Seeder
 {
-    // Run the database seeds.
+    // Delete everything from the movies table then insert faker data with the movie factory.
     public function run()
     {
-        Movies::truncate();
-
-        $faker = \Faker\Factory::create();
-
-        for ($i = 0; $i < 20; $i++) {
-            Movies::create([
-                'title' => $faker->realText($maxNbChars = 20, $indexSize = 2),
-                'description' => $faker->realText($maxNbChars = 100, $indexSize = 2),
-                'poster' => $faker->url,
-                'trailer' => $faker->url,
-            ]);
-        }
+        Movie::truncate();
+        factory(App\Movie::class, 50)->create();
     }
 }

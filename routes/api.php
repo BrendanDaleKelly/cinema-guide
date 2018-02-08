@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Cinemas;
-use App\Movies;
-use App\Sessions;
+use App\Cinema;
+use App\Movie;
+use App\Session;
 
 Route::get('cinemas', 'CinemasController@index');
 
