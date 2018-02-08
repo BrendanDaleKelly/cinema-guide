@@ -32,7 +32,7 @@ class CinemaController extends Controller
         // Find the desired cinema and its sessions. Filter by date if available.
         $cinema = Cinema::where('name', $name)->firstOrFail();
         if ($date !== null) {
-            $sessions = Session::where([['cinema_id', $cinema->id], ['date', $date]])->get();
+            $sessions = Session::where([['cinema_id', $cinema->id], ['date', 'LIKE', "$date%"]])->get();
         } else {
             $sessions = Session::where('cinema_id', $cinema->id)->get();
         }
@@ -49,7 +49,7 @@ class CinemaController extends Controller
         // Add session times to each movie.
         foreach ($cinema['movies'] as &$movie) {
             if ($date !== null) {
-                $movie['sessions'] = Session::where([['cinema_id', $cinema->id], ['movie_id', $movie->id], ['date', $date]])->get();
+                $movie['sessions'] = Session::where([['cinema_id', $cinema->id], ['movie_id', $movie->id], ['date', 'LIKE', "$date%"]])->get();
             } else {
                 $movie['sessions'] = Session::where([['cinema_id', $cinema->id], ['movie_id', $movie->id]])->get();
             }
