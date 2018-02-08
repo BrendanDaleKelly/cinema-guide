@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Cinema;
 use App\Http\Resources\CinemaResource;
 
@@ -13,7 +12,14 @@ class CinemaController extends Controller
     public function index()
     {
         $cinemas = Cinema::paginate(15);
-        return CinemaResource::collection($cinemas);
+        return CinemasResource::collection($cinemas);
+    }
+
+    // Get a single cinema by name and return it as a resource.
+    public function show($name)
+    {
+        $cinema = Cinema::where('name', $name)->firstOrFail();
+        return new CinemaResource($cinema);
     }
 
     // Create a new cinema listing.
@@ -34,22 +40,12 @@ class CinemaController extends Controller
         }
     }
 
-    public function show($id)
-    {
-        // Get a single cinema.
-        $cinema = Cinema::findOrFail($id);
-
-        // Return the cinema as a resource.
-        return new CinemaResource($cinema);
-    }
-
     // Update a cinema listing.
     public function update(Request $request, $id)
     {
         $cinema = Cinema::findOrFail($request->id);
 
         // Checking that each field is set allows the user to leave some fields out of the update.
-        $cinema->id = $request->input('id');
         if (null !== $request->input('name')) $cinema->name = $request->input('name');
         if (null !== $request->input('address')) $cinema->address = $request->input('address');
         if (null !== $request->input('url')) $cinema->url = $request->input('url');
