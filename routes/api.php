@@ -20,6 +20,8 @@ Route::post('cinema', 'CinemaController@store'); // Creates a new cinema
 Route::patch('cinema/{id}', 'CinemaController@update'); // Updates a cinema
 Route::delete('cinema/{id}', 'CinemaController@destroy'); // Deletes a cinema
 
+Route::post('register', 'Auth\RegisterController@register');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
