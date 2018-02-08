@@ -11,12 +11,17 @@ Built & tested with:
  - Postman
  - phpMyAdmin
 
-### Unaddressed Considerations
+### Notes
  - Error handling
    - A lot left to be done here, I have only changed some of the error messages to return JSON rather than HTML, everything else is standard laravel.
    - Some methods do not provide especially useful feedback.
      For example logout will only ever return `{"data": "User logged out."}`
  - More than one level of authorisation would be helpful in restricting access to the administrative functions.
+ - Didn't have time to address input validation.
+ - Made some (undocumented) administrative functions out of curiosity, mostly not working due to time constraints.
+   - POST /api/cinema - create a new cinema (not working)
+   - PATCH /api/cinema{id} - Update a cinema (not working)
+   - DELETE /api/cinema{id} - Delete a cinema (working)
 
 # API Documentation
 
